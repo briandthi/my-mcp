@@ -42,7 +42,6 @@ pydantic-settings==2.10.1
 pydantic_core==2.33.2
 python-dotenv==1.1.1
 python-multipart==0.0.20
-pywin32==310
 PyYAML==6.0.2
 referencing==0.36.2
 regex==2024.11.6
