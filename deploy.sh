@@ -5,5 +5,5 @@ pm2 delete "mcp"
 
 # deploy the backend side
 source venv/bin/activate
-pm2 start main.py --name "mcp" --interpreter python3
+pm2 start server.py --name "mcp" --interpreter python3
 
