@@ -7,6 +7,16 @@
         "fetch_url_content",
         "fetch_doc_snippet"
       ],
+      "disabledTools": [],
+      "disabled": true
+    },
+    "mcp-online": {
+      "url": "http://91.134.91.158:8765/sse",
+      "transport": "sse",
+      "alwaysAllow": [
+        "fetch_url_content",
+        "fetch_doc_snippet"
+      ],
       "disabledTools": []
     }
   }
