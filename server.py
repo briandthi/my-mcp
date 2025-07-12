@@ -17,6 +17,7 @@ mcp = FastMCP(
     version="2025-07-12",
     description="MCP server exposing documentation resources and content extraction tools, with dynamic discovery endpoint and robust error handling.",
     port=8765,
+    host="0.0.0.0",
 )
 
 
@@ -412,5 +413,5 @@ def list_tools_resources() -> dict:
 
 
 if __name__ == "__main__":
-    # Utilisation d'un port non standard pour le déploiement
+    # Utilisation d'un port non standard pour le déploiement, écoute sur toutes les interfaces réseau
     mcp.run(transport="sse")
