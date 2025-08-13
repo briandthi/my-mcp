@@ -1,15 +1,15 @@
-name: CD bot
+# name: CD bot
 
-on: [push]
+# on: [push]
 
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
-    steps:
-    - name: Deploy to vps
-      uses: appleboy/ssh-action@master
-      with:
-        username: ubuntu
-        host: ${{ secrets.SSH_HOST }}
-        password: ${{ secrets.SSH_PASSWORD }}
-        script: 'cd my-mcp && bash ./deploy.sh'
+# jobs:
+#   deploy:
+#     runs-on: ubuntu-latest
+#     steps:
+#     - name: Deploy to vps
+#       uses: appleboy/ssh-action@master
+#       with:
+#         username: ubuntu
+#         host: ${{ secrets.SSH_HOST }}
+#         password: ${{ secrets.SSH_PASSWORD }}
+        # script: 'cd my-mcp && bash ./deploy.sh'

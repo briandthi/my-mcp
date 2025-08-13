@@ -1,0 +1,33 @@
+services:
+  mcp-documentation:
+    build:
+      context: .
+    container_name: mcp-documentation
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      AZURE_OPENAI_API_KEY: ${AZURE_OPENAI_API_KEY}
+      AZURE_OPENAI_ENDPOINT: ${AZURE_OPENAI_ENDPOINT}
+    networks:
+      - webproxy
+    expose:
+      - "9001"
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.mcp.rule=Host(`mcp.documentation.thibaultbriand.fr`) && PathPrefix(`/mcp`)"
+      - "traefik.http.routers.mcp.entrypoints=websecure"
+      - "traefik.http.routers.mcp.tls.certresolver=myresolver"
+      - "traefik.http.services.mcp.loadbalancer.server.port=9001"
+      - "traefik.http.services.mcp.loadbalancer.server.scheme=http"
+      - "traefik.docker.network=webproxy"
+
+      # Middleware pour SSE + Cache-Control
+      - "traefik.http.middlewares.sse-headers.headers.customResponseHeaders.Cache-Control=no-cache"
+
+      # Associe seulement le middleware sse-headers, PAS strip-mcp
+      - "traefik.http.routers.mcp.middlewares=sse-headers"
+
+networks:
+  webproxy:
+    external: true
