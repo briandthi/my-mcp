@@ -13,8 +13,7 @@ import re
 dotenv.load_dotenv()
 
 mcp = FastMCP(
-    name="Resource Example",
-    description="MCP server exposing documentation resources and content extraction tools, with dynamic discovery endpoint and robust error handling.",
+    name="Documentation MCP",
     port=9001,
     host="0.0.0.0",
 )
