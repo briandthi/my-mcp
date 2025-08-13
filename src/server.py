@@ -14,7 +14,6 @@ dotenv.load_dotenv()
 
 mcp = FastMCP(
     name="Resource Example",
-    version="2025-07-12",
     description="MCP server exposing documentation resources and content extraction tools, with dynamic discovery endpoint and robust error handling.",
     port=9001,
     host="0.0.0.0",
