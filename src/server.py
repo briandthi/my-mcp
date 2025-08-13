@@ -4,13 +4,20 @@ conforme aux standards MCP (2025-06-18), avec métadonnées, validation, gestion
 et ressource de découverte dynamique pour modèles LLM.
 """
 
-from mcp.server.fastmcp import FastMCP
+from fastmcp import FastMCP
 from pydantic import SecretStr
 import requests
 import dotenv
 import re
+import logging
 
 dotenv.load_dotenv()
+
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(name)s | %(levelname)s: %(message)s"
+)
+logger = logging.getLogger("mcp-doc")
 
 mcp = FastMCP(
     name="Documentation MCP",
