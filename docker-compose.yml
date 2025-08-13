@@ -18,7 +18,7 @@ services:
       - "traefik.http.routers.mcp-doc.rule=Host(`mcp.documentation.thibaultbriand.fr`) && PathPrefix(`/mcp`)"
       - "traefik.http.routers.mcp-doc.entrypoints=websecure"
       - "traefik.http.routers.mcp-doc.tls.certresolver=myresolver"
-      - "traefik.http.services.mcmcp-docp.loadbalancer.server.port=9001"
+      - "traefik.http.services.mcp-doc.loadbalancer.server.port=9001"
       - "traefik.http.services.mcp-doc.loadbalancer.server.scheme=http"
       - "traefik.docker.network=webproxy"
 
