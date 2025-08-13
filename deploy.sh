@@ -1,9 +1,10 @@
+#!/bin/bash
+set -e
+
 git pull
 
-# Delete old processes
-pm2 delete "mcp"
+echo "🚀 Déploiement en mode PRODUCTION (docker-compose.yml)"
+docker-compose down
+docker-compose up --build -d
 
-# deploy the backend side
-source venv/bin/activate
-pm2 start server.py --name "mcp" --interpreter python3
-
+echo "✅ Stack production lancée !"
