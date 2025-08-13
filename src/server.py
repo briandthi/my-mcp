@@ -4,7 +4,7 @@ conforme aux standards MCP (2025-06-18), avec métadonnées, validation, gestion
 et ressource de découverte dynamique pour modèles LLM.
 """
 
-from fastmcp import FastMCP
+from mcp.server.fastmcp import FastMCP
 from pydantic import SecretStr
 import requests
 import dotenv
