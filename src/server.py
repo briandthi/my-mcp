@@ -413,4 +413,4 @@ def list_tools_resources() -> dict:
 
 if __name__ == "__main__":
     # Utilisation d'un port non standard pour le déploiement, écoute sur toutes les interfaces réseau
-    mcp.run(transport="sse")
+    mcp.run(transport="streamable-http")
