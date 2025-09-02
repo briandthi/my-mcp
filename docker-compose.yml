@@ -14,25 +14,19 @@ services:
     expose:
       - "9001"
     labels:
-      # Activation de Traefik
       - "traefik.enable=true"
-      
-      # Configuration du routeur principal
-      - "traefik.http.routers.mcp-doc.rule=Host(`mcp.documentation.thibaultbriand.fr`)"
+      - "traefik.http.routers.mcp-doc.rule=Host(`mcp.documentation.thibaultbriand.fr`) && PathPrefix(`/mcp`)"
       - "traefik.http.routers.mcp-doc.entrypoints=websecure"
       - "traefik.http.routers.mcp-doc.tls.certresolver=myresolver"
-      
-      # Configuration du service
       - "traefik.http.services.mcp-doc.loadbalancer.server.port=9001"
       - "traefik.http.services.mcp-doc.loadbalancer.server.scheme=http"
-      
-      # Spécifier le réseau pour Traefik
       - "traefik.docker.network=webproxy"
-      
-      # Middleware pour les headers SSE (optionnel)
-      - "traefik.http.middlewares.mcp-doc-headers.headers.customResponseHeaders.Cache-Control=no-cache"
-      - "traefik.http.middlewares.mcp-doc-headers.headers.customResponseHeaders.Connection=keep-alive"
-      - "traefik.http.routers.mcp-doc.middlewares=mcp-doc-headers"
+
+      # Middleware pour SSE + Cache-Control
+      - "traefik.http.middlewares.sse-headers.headers.customResponseHeaders.Cache-Control=no-cache"
+
+      # Associe seulement le middleware sse-headers, PAS strip-mcp
+      - "traefik.http.routers.mcp-doc.middlewares=sse-headers"
 
 networks:
   webproxy:
