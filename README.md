@@ -73,13 +73,14 @@ Pour connecter ce serveur MCP à un client compatible (par exemple Kilocode), il
 {
   "mcpServers": {
     "mcp-online": {
-      "url": "http://91.134.91.158:8765/sse",
-      "transport": "sse",
-      "alwaysAllow": [
-        "fetch_url_content",
-        "fetch_doc_snippet"
-      ],
-      "disabledTools": []
+      "timeout": 300,
+      "type": "streamableHttp",
+      "url": "your_url/mcp/",
+      "disable": false,
+      "autoApprove": [
+        "search",
+        "fetch_url_content"
+      ]
     }
   }
 }
