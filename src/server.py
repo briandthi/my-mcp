@@ -49,23 +49,23 @@ def read_mcp_doc() -> str:
 
 
 @mcp.resource(
-    uri="https://docs.langchain.com/llms-full.txt",
+    uri="https://docs.langchain.com/llms.txt",
     name="LangGraph Documentation",
     description="Complete documentation of LangGraph",
     mime_type="text/plain",
 )
 def read_langgraph_doc() -> str:
-    return fetch_doc("https://docs.langchain.com/llms-full.txt")
+    return fetch_doc("https://docs.langchain.com/llms.txt")
 
 
 @mcp.resource(
-    uri="https://docs.langchain.com/llms-full.txt",
+    uri="https://docs.langchain.com/llms.txt",
     name="LangChain Documentation",
     description="Description of all pages in the LangChain documentation",
     mime_type="text/plain",
 )
 def read_langchain_doc() -> str:
-    return fetch_doc("https://docs.langchain.com/llms-full.txt")
+    return fetch_doc("https://docs.langchain.com/llms.txt")
 
 
 @mcp.resource(
@@ -384,13 +384,13 @@ def list_tools_resources() -> dict:
             "example": {},
         },
         {
-            "uri": "https://docs.langchain.com/llms-full.txt",
+            "uri": "https://docs.langchain.com/llms.txt",
             "name": "LangGraph Documentation",
             "description": "Complete documentation of LangGraph",
             "example": {},
         },
         {
-            "uri": "https://docs.langchain.com/llms-full.txt",
+            "uri": "https://docs.langchain.com/llms.txt",
             "name": "LangChain Documentation",
             "description": "Complete documentation of LangChain",
             "example": {},
