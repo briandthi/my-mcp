@@ -31,7 +31,7 @@ def fetch_doc(url: str) -> str:
         response = requests.get(url, timeout=10)
         response.raise_for_status()
         print(f"Fetched {len(response.text)} characters from {url}")
-        if len(response.text) > 5_000_000:
+        if len(response.text) > 10_000_000:
             return "Error: Resource too large"
         return response.text
     except Exception as e:
@@ -263,7 +263,7 @@ async def fetch_doc_snippet(question: str, technology: str) -> dict:
             ],
         }
 
-    splitter = RecursiveCharacterTextSplitter(chunk_size=5000, chunk_overlap=1000)
+    splitter = RecursiveCharacterTextSplitter(chunk_size=5000, chunk_overlap=200)
     docs = splitter.create_documents([doc_text])
 
     try:
